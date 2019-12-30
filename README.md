@@ -1,6 +1,16 @@
 # alien-fix-buggy-rpm - Fix buggy Alien-generated RPMs
 
-This program repackages
+This program repackages RPMs created by the
+[Alien](https://sourceforge.net/projects/alien-pkg-convert/) package
+format converter which appear to have lost its mainteiner.
+
+Maintenance was discontinued without having applied a fix for a
+[bug](https://sourceforge.net/p/alien-pkg-convert/tickets/1/) that
+causes converted RPMs to contain all possible directory path parts for
+files installed.  (E.g., if installing `/usr/lib/foo.a`, Alien adds
+`/usr` and `/usr/lib` to the RPM spec's `%files` section, causing
+conflicts with packages like `filesystem`.)
+
 
 ## Prerequisites
 
